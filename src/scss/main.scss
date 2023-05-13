@@ -1,0 +1,177 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+//   padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+    //1 rem === 10px
+    font-size: 62.5%;
+}
+
+body {
+    font-family:  Verdana,'Roboto', sans-serif;
+    font-weight: 400;
+    box-sizing: border-box;
+  }
+
+// -----------------------------------
+// COLORS
+// -----------------------------------
+
+$pri-clr-black: #323232;
+$pri-clr-silver: #AFAFAF;
+$pri-clr-white: #FFFFFF;
+
+$sec-clr-dark: #000000;
+$sec-clr-mercury: #E1E1E1;
+$sec-clr-alabaster: #FAFAFA;
+
+$desktop: 128em;
+$tablet: 76.8em;
+$mobile: 32em;
+
+// -----------------------------------
+// TYPO
+// -----------------------------------
+
+// FONT WEIGHTS
+$regular: 400;
+$demi: 600;
+$bold: 700;
+
+// TEXT SIZE - DESKTOP & TABLET
+$page-header-lg: 6rem;
+$section-header-lg: 3.6rem;
+$subheader-lg: 2.4rem;
+$body-copy-lg: 1.4rem;
+$footer-copy-lg: 1.4rem; 
+$label-lg: 1.2rem;
+$btn-lg: 1.2rem;
+
+// TEXT SIZE - MOBILE
+$page-header: 2.4rem;
+$section-header: 2.4rem;
+$subheader: 1.4rem;
+$body-copy: 1.3rem;
+$footer-copy: 1.3rem; 
+$label: 1rem;
+$btn: 1rem;
+
+// -----------------------------------
+// SPACING
+// -----------------------------------
+
+$padding: 1.6rem;
+$margin: 1.6rem;
+
+
+
+// DESKTOP & TABLET
+$maring-before-lg: 4.8rem;
+$margin-after-lg: 3.6rem;
+$padding-component-lg: 3.6rem;
+
+// MOBILE
+$maring-before-sm: 2.4rem;
+$margin-after-sm: 1.6rem;
+$padding-component-sm: 1.6rem;
+
+
+
+// -----------------------------------
+// SPACING
+// -----------------------------------
+
+
+// -----------------------------------
+// NAV
+// -----------------------------------
+
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    
+    background-color: $pri-clr-black;
+    &__logo-link {
+        color: $pri-clr-white;
+        font-size: 1.2rem;
+        padding: .4rem;
+    }
+
+    &__tabs {
+        height: max-content;
+        display: flex;
+        width: 100%;
+       
+        &-link {
+            color: $pri-clr-white;
+            font-size: $label;
+            padding: .4rem;
+            width: 100%;
+            text-align: center;
+        
+            &--active {
+                border-bottom: solid 2px $pri-clr-white;
+            }
+        }
+    }
+}
+
+// -----------------------------------
+// MAIN
+// -----------------------------------
+
+// -----------------------------------
+// HERO
+// -----------------------------------
+
+.hero {
+    width: 100vw;
+    height: 50vh;
+    background-image: url("../assests/images/hero-bio.jpg");
+    background-position: right;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0 $padding ;
+
+    &__header {
+
+        font-size: $page-header;
+        color: $pri-clr-white;
+    }
+}
+
+// -----------------------------------
+// SECTIONS
+// -----------------------------------
+
+// -----------------------------------
+// SECTION - ABOUT
+// -----------------------------------
+
+
+// -----------------------------------
+// SECTION - PHOTOS
+// -----------------------------------
+
+
+
+.section {
+    padding: 0 $padding ;
+}
+
+
+// -----------------------------------
+// FOOTER
+// -----------------------------------
+
+.footer {
+
+padding: 0 $padding ;
+}
