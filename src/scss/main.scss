@@ -17,6 +17,21 @@ body {
     box-sizing: border-box;
   }
 
+  /// MIXINGS
+/// 
+@mixin respond-tablet {
+    @media (min-width: $tablet) {
+      @content;
+    }
+  }
+  
+  @mixin respond-deskop {
+      @media (min-width: $desktop) {
+        @content;
+      }
+    }
+    
+
 // -----------------------------------
 // COLORS
 // -----------------------------------
@@ -29,8 +44,8 @@ $sec-clr-dark: #000000;
 $sec-clr-mercury: #E1E1E1;
 $sec-clr-alabaster: #FAFAFA;
 
-$desktop: 128em;
-$tablet: 76.8em;
+$desktop: 1280px;
+$tablet: 768px;
 $mobile: 32em;
 
 // -----------------------------------
@@ -43,22 +58,39 @@ $demi: 600;
 $bold: 700;
 
 // TEXT SIZE - DESKTOP & TABLET
-$page-header-lg: 6rem;
-$section-header-lg: 3.6rem;
-$subheader-lg: 2.4rem;
-$body-copy-lg: 1.4rem;
-$footer-copy-lg: 1.4rem; 
-$label-lg: 1.2rem;
-$btn-lg: 1.2rem;
+$ts-page-header-lg: 6rem;
+$ts-section-header-lg: 3.6rem;
+$ts-subheader-lg: 2.4rem;
+$ts-body-copy-lg: 1.4rem;
+$ts-footer-copy-lg: 1.4rem; 
+$ts-label-lg: 1.2rem;
+$ts-btn-lg: 1.2rem;
 
 // TEXT SIZE - MOBILE
-$page-header: 2.4rem;
-$section-header: 2.4rem;
-$subheader: 1.4rem;
-$body-copy: 1.3rem;
-$footer-copy: 1.3rem; 
-$label: 1rem;
-$btn: 1rem;
+$ts-page-header: 2.4rem;
+$ts-section-header: 2.4rem;
+$ts-subheader: 1.4rem;
+$ts-body-copy: 1.3rem;
+$ts-footer-copy: 1.3rem; 
+$ts-label: 1rem;
+$ts-btn: 1rem;
+
+// LINE HEIGHTS
+$lh-page-lg: 6.8rem;
+$lh-section-lg: 4.4rem;
+$lh-sub-3-lg: 3.2rem;
+$lh-body-lg: 2.2rem;
+$lh-footer-lg: 2rem;
+$lh-label-lg: 2rem;
+
+// LINE HEIGHTS - MOBILE
+$lh-page: 3.2rem;
+$lh-section: 3.2rem;
+$lh-sub-3: 2.2rem;
+$lh-body: 1.8rem;
+$lh-footer: 1.8rem;
+$lh-label: 2rem;
+
 
 // -----------------------------------
 // SPACING
@@ -70,49 +102,54 @@ $margin: 1.6rem;
 
 
 // DESKTOP & TABLET
-$maring-before-lg: 4.8rem;
-$margin-after-lg: 3.6rem;
-$padding-component-lg: 3.6rem;
+$space-before-lg: 4.8rem;
+$space-after-lg: 3.6rem;
+$space-between-lg: 3.6rem;
 
 // MOBILE
-$maring-before-sm: 2.4rem;
-$margin-after-sm: 1.6rem;
-$padding-component-sm: 1.6rem;
-
+$space-before: 2.4rem;
+$space-after: 1.6rem;
+$space-between: 1.6rem;
 
 
 // -----------------------------------
-// SPACING
+// MAX CONTENT WIDTH 
 // -----------------------------------
-
+$max-wd-tb: 69.6rem;
 
 // -----------------------------------
 // NAV
 // -----------------------------------
 
-
+ // NAV ---- MOBILE
 .nav {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100vw;
-    
     background-color: $pri-clr-black;
+
     &__logo-link {
         color: $pri-clr-white;
-        font-size: 1.2rem;
-        padding: .4rem;
+        font-size: 2rem;
+        padding: .8rem;
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
     }
 
     &__tabs {
-        height: max-content;
         display: flex;
         width: 100%;
        
         &-link {
             color: $pri-clr-white;
-            font-size: $label;
-            padding: .4rem;
+            font-size: $ts-label;
+            padding: $padding;
             width: 100%;
             text-align: center;
         
@@ -121,6 +158,34 @@ $padding-component-sm: 1.6rem;
             }
         }
     }
+
+    // NAV ---- TABLET
+
+    @include respond-tablet {
+
+        &__container {
+            flex-direction: row;
+            gap: $space-between;
+            max-width: $max-wd-tb;
+        }
+        
+
+        &__logo-link {
+            line-height: 0;
+            padding: .8rem;
+        }
+
+        &__tabs {
+            width: max-content;
+
+            &-link {
+                font-size: $ts-label-lg;
+            }
+        }
+      }
+
+       // NAV ---- DESKTOP
+
 }
 
 // -----------------------------------
@@ -141,8 +206,7 @@ $padding-component-sm: 1.6rem;
     padding: 0 $padding ;
 
     &__header {
-
-        font-size: $page-header;
+        font-size: $ts-page-header;
         color: $pri-clr-white;
     }
 }
@@ -151,27 +215,120 @@ $padding-component-sm: 1.6rem;
 // SECTIONS
 // -----------------------------------
 
+.section {
+    padding: 0 $padding;
+    
+    &__container {
+        max-width: 120rem;
+        margin: 0 auto;
+        padding-top: $space-before;
+        padding-bottom: $space-after;
+
+        &-header {
+            font-size: $ts-section-header;
+        }
+
+        &-subtitle {
+            margin-top: $space-before;
+        }
+
+        &-body {
+            margin-top: $space-after;
+        }
+    }
+
+    &--grey {
+        background-color: $sec-clr-alabaster;
+    }
+
+
+    // SECTIONS ---- TABLET
+
+
+    // SECTIONS ---- DESKTOP
+
+
+}
+
 // -----------------------------------
 // SECTION - ABOUT
 // -----------------------------------
+    .about {
+        max-width: 90rem;
+        margin: 0 auto;
 
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+        &__image {
+            height: 100%;
+            width: 100%;
+            margin-top: $space-between;
+            object-fit: cover;
+            object-position: center bottom;
+        }
+
+        &__quote {
+            font-size: $ts-subheader;
+            line-height: 2.2rem;
+            font-weight: $demi;
+            margin-top: $margin;
+        }
+
+        @include respond-tablet {
+            &__grid {
+                grid-template-columns: repeat(2, 1fr);
+                column-gap: $space-between;
+            }
+
+            &__image {
+                object-position: center;
+            }
+
+          }
+    }
 
 // -----------------------------------
-// SECTION - PHOTOS
+// SECTION - PHOTOS GRID
 // -----------------------------------
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        row-gap: $space-between;
+        max-width: 110rem;
+        margin: auto;
+        margin-top: $space-between;
+
+        &__item {
+            width: 100%;
 
 
+            &-photo {
+            height: 25rem;
+            width: 100%;
+            object-position: center;
+            object-fit: cover;
+            }
+        }
 
-.section {
-    padding: 0 $padding ;
-}
-
+        @include respond-tablet {
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: $space-between;
+            
+          }
+     }
 
 // -----------------------------------
 // FOOTER
 // -----------------------------------
 
 .footer {
+    background-color: $sec-clr-dark;
 
 padding: 0 $padding ;
 }
+
+
