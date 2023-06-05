@@ -1,0 +1,26 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+html {
+  //1 rem === 10px
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Avenir Next LT Pro", Arial, sans-serif;
+  font-weight: 400;
+  box-sizing: border-box;
+}

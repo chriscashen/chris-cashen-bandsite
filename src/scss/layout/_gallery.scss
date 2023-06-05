@@ -1,0 +1,28 @@
+@use "../utils/" as *;
+
+// -----------------------------------
+// SECTION - PHOTOS GRID
+// -----------------------------------
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  row-gap: $space-between;
+  margin: auto;
+  margin-top: $space-between;
+
+  &__item {
+    width: 100%;
+
+    &-photo {
+      width: 100%;
+      object-position: center;
+      object-fit: cover;
+    }
+  }
+
+  @include respond-tablet {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: $space-between;
+  }
+}

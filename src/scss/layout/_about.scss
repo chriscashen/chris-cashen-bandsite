@@ -1,0 +1,94 @@
+@use "../utils/" as *;
+
+// -----------------------------------
+// SECTION - ABOUT
+// -----------------------------------
+.about {
+  margin: 0 auto;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  &__image {
+    width: 100%;
+    margin: $margin 0;
+    object-fit: cover;
+    object-position: center bottom;
+  }
+
+  &__quote {
+    font-size: $ts-subheader;
+    line-height: 2.2rem;
+    font-weight: $demi;
+    &:last-of-type {
+      margin-top: $margin;
+    }
+  }
+
+  &__subtitle {
+    font-size: $ts-subheader;
+    font-weight: 600;
+    line-height: $lh-sub;
+    margin-top: 2.4rem;
+  }
+
+  &__body {
+    font-size: $ts-body-copy;
+    line-height: $lh-body;
+    margin-top: $margin;
+
+    &--bold {
+      font-weight: bold;
+    }
+  }
+
+  /// SECTION - ABOUT - TABLET
+
+  @include respond-tablet {
+    padding: 0 calc($padding * 3);
+
+    &__subtitle {
+      font-size: $ts-subheader-lg;
+      font-weight: 600;
+      line-height: $lh-sub-lg;
+      margin-top: calc($margin * 3);
+    }
+
+    &__grid {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: $space-between;
+    }
+
+    &__image {
+      object-position: center;
+      margin: 2.4rem 0;
+    }
+
+    &__quote {
+      font-size: $ts-subheader-lg;
+      line-height: $lh-body-lg;
+
+      &:last-of-type {
+        margin-top: $margin;
+      }
+    }
+
+    &__body {
+      font-size: $ts-body-copy-lg;
+      line-height: $lh-body-lg;
+      margin-top: 2.6rem;
+    }
+  }
+
+  /// SECTION - ABOUT - DESKTOP
+
+  @include respond-deskop {
+    max-width: $desktop;
+
+    &__image {
+      height: 60vh;
+    }
+  }
+}

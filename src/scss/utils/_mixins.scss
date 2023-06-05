@@ -1,0 +1,14 @@
+@use "./variables" as *;
+
+
+@mixin respond-tablet {
+    @media (min-width: $tablet) {
+      @content;
+    }
+  }
+  
+  @mixin respond-deskop {
+    @media (min-width: $desktop) {
+      @content;
+    }
+  }
