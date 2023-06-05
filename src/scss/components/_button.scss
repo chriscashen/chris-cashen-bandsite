@@ -1,0 +1,10 @@
+.button {
+    font-size: 1rem;
+    line-height: 2rem;
+    font-weight: bold;
+    
+    @include respond-tablet {
+      font-size: 1.2rem;
+      line-height: 2rem;
+    }
+  }
