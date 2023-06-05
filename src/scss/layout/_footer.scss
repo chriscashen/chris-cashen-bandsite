@@ -1,0 +1,131 @@
+@use "../utils/" as *;
+
+// -----------------------------------
+// FOOTER
+// -----------------------------------
+
+.footer {
+    background-color: $sec-clr-dark;
+    padding: 2.4rem $padding;
+  
+    &__header {
+      font-size: $ts-section-header;
+      font-weight: $bold;
+      line-height: $lh-section;
+      color: $pri-clr-white;
+    }
+  
+    &__social-row {
+      display: flex;
+      gap: 2.4rem;
+      margin-top: $margin;
+    }
+  
+    &__logo-link {
+      color: $pri-clr-white;
+      font-size: 2rem;
+  
+      &--desktop {
+        display: none;
+      }
+    }
+  
+    &__grid-item {
+      display: flex;
+      flex-direction: column;
+      margin-top: $margin;
+    }
+  
+    &__grid-text {
+      font-size: $ts-subheader;
+  
+      line-height: $lh-sub;
+      color: $pri-clr-white;
+  
+      &--bold {
+        font-weight: bold;
+      }
+    }
+  
+    &__grid-link {
+      font-size: $ts-subheader;
+      line-height: $lh-sub;
+      color: $pri-clr-white;
+    }
+  
+    &__copyright {
+      margin-top: 4rem;
+      margin: 0 auto;
+  
+      &-text {
+        font-size: $ts-footer-copy;
+        line-height: 1.8rem;
+        color: $pri-clr-white;
+        margin-top: $margin;
+      }
+    }
+  
+    @include respond-tablet {
+      &__container {
+        max-width: $max-wd-tb;
+        margin: 0 auto;
+      }
+  
+      &__copyright {
+        max-width: $max-wd-tb;
+        margin: 0 auto;
+      }
+  
+      &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: $space-between;
+      }
+  
+      &__row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+  
+        &-item {
+          display: flex;
+          align-items: center;
+          gap: 2.4rem;
+        }
+      }
+  
+      &__social-row {
+        margin-top: 0;
+      }
+  
+      &__logo-link--mobile {
+        display: none;
+      }
+  
+      &__logo-link--desktop {
+        display: initial;
+      }
+  
+      &__header {
+        font-size: $ts-section-header-lg;
+        font-weight: $bold;
+        line-height: $lh-section-lg;
+        color: $pri-clr-white;
+      }
+    }
+  
+    @include respond-deskop {
+      &__container {
+        max-width: $desktop;
+      }
+  
+      &__row-item {
+        gap: 8rem;
+      }
+  
+      &__copyright {
+        max-width: $desktop;
+      }
+    }
+  }
+  

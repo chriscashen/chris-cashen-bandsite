@@ -1,0 +1,53 @@
+@use "../utils/" as *;
+
+
+// -----------------------------------
+// HERO
+// -----------------------------------
+
+.hero {
+    height: 70vh;
+    background-image: url("../assests/images/hero-bio.jpg");
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: multiply;
+    background-position: right bottom -70px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 8.8rem;
+  
+    &__container {
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      padding: 0 $padding;
+    }
+  
+    &__header {
+      font-size: $ts-page-header;
+      font-weight: 700;
+      line-height: $lh-section;
+      color: $pri-clr-white;
+    }
+  
+    @include respond-tablet {
+      background-position: right bottom;
+      height: 100vh;
+      padding-top: 4.9rem;
+  
+      &__container {
+        max-width: $max-wd-tb;
+      }
+  
+      &__header {
+        font-size: $ts-page-header-lg;
+        line-height: $lh-section-lg;
+      }
+    }
+    @include respond-deskop {
+      &__container {
+        max-width: $desktop;
+      }
+    }
+  }
+  

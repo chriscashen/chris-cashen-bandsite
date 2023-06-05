@@ -1,0 +1,72 @@
+@use "../utils/" as *;
+
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  background-color: $pri-clr-black;
+  position: fixed;
+
+  &__logo-link {
+    color: $pri-clr-white;
+    font-size: 2rem;
+    padding: 0.8rem;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__tabs {
+    display: flex;
+    width: 100%;
+
+    &-link {
+      color: $pri-clr-white;
+      font-size: $ts-label;
+      font-weight: bold;
+      padding: $padding;
+      width: 100%;
+      text-align: center;
+
+      &--active {
+        border-bottom: solid 2px $pri-clr-white;
+      }
+    }
+  }
+
+  // NAV ---- TABLET
+
+  @include respond-tablet {
+    &__container {
+      flex-direction: row;
+      gap: $space-between;
+      max-width: $max-wd-tb;
+    }
+
+    &__logo-link {
+      line-height: 0;
+      padding: 0.8rem;
+    }
+
+    &__tabs {
+      width: max-content;
+
+      &-link {
+        font-size: $ts-label-lg;
+      }
+    }
+  }
+
+  // NAV ---- DESKTOP
+  @include respond-deskop {
+    &__container {
+      max-width: $desktop;
+    }
+  }
+}
