@@ -9,6 +9,8 @@
   &__grid {
     display: grid;
     grid-template-columns: 1fr;
+    margin-top: $margin;
+    row-gap: 1.6rem;
   }
 
   &__image {
@@ -33,32 +35,22 @@
     line-height: $lh-sub;
     margin-top: 2.4rem;
   }
-
-  &__body {
-    font-size: $ts-body-copy;
-    line-height: $lh-body;
-    margin-top: $margin;
-
-    &--bold {
-      font-weight: bold;
-    }
-  }
-
   /// SECTION - ABOUT - TABLET
 
   @include respond-tablet {
     padding: 0 calc($padding * 3);
+
+    &__grid {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: $space-between;
+      margin-top: 2.6rem;
+    }
 
     &__subtitle {
       font-size: $ts-subheader-lg;
       font-weight: 600;
       line-height: $lh-sub-lg;
       margin-top: calc($margin * 3);
-    }
-
-    &__grid {
-      grid-template-columns: repeat(2, 1fr);
-      column-gap: $space-between;
     }
 
     &__image {
@@ -75,11 +67,7 @@
       }
     }
 
-    &__body {
-      font-size: $ts-body-copy-lg;
-      line-height: $lh-body-lg;
-      margin-top: 2.6rem;
-    }
+    
   }
 
   /// SECTION - ABOUT - DESKTOP
