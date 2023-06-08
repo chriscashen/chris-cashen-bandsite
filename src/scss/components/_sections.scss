@@ -11,10 +11,6 @@
     margin: 0 auto;
     padding-top: 2.4rem;
     padding-bottom: $space-after;
-
-    &-header {
-      font-size: $ts-section-header;
-    }
   }
 
   &--grey {
@@ -28,9 +24,6 @@
       padding-bottom: $space-after-lg;
       max-width: $max-wd-tb;
 
-      &-header {
-        font-size: $ts-section-header-lg;
-      }
     }
   }
 
