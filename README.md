@@ -19,7 +19,7 @@ Run the following command to install the project dependencies:
 # Development Server
 To start the development server with Parcel, use the following command:
 
-npm run dev
+npm start
 
 This will start Parcel and bundle your project's assets. Parcel will also watch for changes in your source files and automatically update the browser with the latest changes. The development server will be accessible at http://localhost:1234.
 
