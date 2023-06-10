@@ -1,6 +1,6 @@
 @use "../utils/" as *;
 
-.header {
+.header__text {
   font-size: 2.4rem;
   line-height: 3.2rem;
   font-family: bold;
@@ -13,7 +13,7 @@
   }
 }
 
-.section-header {
+.section__header {
   font-size: 2.4rem;
   line-height: 3.2rem;
   font-weight: bold;
@@ -25,7 +25,7 @@
   }
 }
 
-.sub-header {
+.sub__header {
   font-size: 1.4rem;
   line-height: 2.2rem;
   font-weight: 600;
@@ -37,9 +37,13 @@
   }
 }
 
-.body-text {
+.body__text {
   font-size: 1.3rem;
   line-height: 1.8rem;
+
+  &--bold {
+    font-weight: bold;
+  }
 
   @include respond-tablet {
     font-size: 1.4rem;
@@ -47,7 +51,7 @@
   }
 }
 
-.footer-text {
+.footer__text {
   font-size: 1.3rem;
   line-height: 1.8rem;
 
@@ -57,7 +61,7 @@
   }
 }
 
-.label-text {
+.label__text {
   font-size: 1rem;
   line-height: 2rem;
   font-weight: bold;

@@ -25,6 +25,8 @@ body {
   box-sizing: border-box;
 }
 
-textarea::placeholder {
-  font-family: "Avenir Next LT Pro", Arial, sans-serif !important;
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
 }

@@ -9,7 +9,7 @@ $color-primary: #7ed56f;
 $color-gray-dark: #777;
 $color-error: #D22D2D;
 
-.form__container {
+.comments__container {
     margin: 0 auto;
     padding: 1.6rem;
     display: flex;
@@ -20,9 +20,17 @@ $color-error: #D22D2D;
         display: flex;
         gap: 1.6rem;
     }
+
+    @include respond-tablet {
+        max-width: 61.2rem;
+    }
+
+    @include respond-deskop {
+        max-width: 53.4rem;
+    }
 }
 
-.form {
+.comment__form {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -34,6 +42,10 @@ $color-error: #D22D2D;
     &-label {
         display: block;
         margin-bottom: .5rem; 
+
+        &--error {
+            color: $color-error;
+        }
     }
 
     &-input {
@@ -64,10 +76,14 @@ $color-error: #D22D2D;
     }
     // Helper text
     &-span {
-        display: block;
+        display: none;
         margin-top: .5rem;
         font-size: .875rem;
         color: $color-error;
+
+        &--error {
+            display: block;
+        }
     }
 }
 
@@ -102,7 +118,40 @@ $color-error: #D22D2D;
 }
 
 .divider {
-    margin: 1rem 0;
     padding: 0 1.6rem;
     border-bottom: 1px solid $sec-clr-mercury;
+}
+
+.comment {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    margin-bottom: 1.6rem;
+
+    &__container {
+        display: flex;
+        flex-grow: 1;
+        gap: 1.6rem;
+    }
+
+    &__avatar {
+        height: 2.5rem;
+        min-width: 2.5rem;
+        background-color: #777;
+        border-radius: 50%;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: .5rem;
+    }
 }
