@@ -1,0 +1,72 @@
+@use "../utils/" as *;
+
+// TABLET DESKTOP
+
+.show__info-header {
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+
+  &--grey {
+    color: $pri-clr-silver;
+  }
+
+  @include respond-tablet {
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+  }
+}
+.show__info-label {
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  font-weight: 600;
+
+  @include respond-tablet {
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+  }
+}
+
+.show__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.shows__list-header {
+  display: none;
+
+  @include respond-tablet {
+    display: grid;
+    padding: 1.2rem;
+    margin-top: 3.2rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3.2rem;
+    align-items: center;
+    max-width: $desktop;
+  }
+}
+
+.show__row {
+  display: none;
+  transition: all 0.15s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #fafafa;
+  }
+
+  &:active {
+    background-color: $sec-clr-mercury;
+  }
+
+  @include respond-tablet {
+    display: block;
+
+    &-grid {
+      display: grid;
+      padding: 1.2rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3.2rem;
+      align-items: center;
+    }
+  }
+}

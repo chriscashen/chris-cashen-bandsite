@@ -5,7 +5,7 @@
 // -----------------------------------
 
 .hero {
-  height: 70vh;
+  height: 100vh;
   background-image: url("../assests/images/hero-bio.jpg");
   background-color: rgba(0, 0, 0, 0.5);
   background-blend-mode: multiply;
@@ -14,16 +14,41 @@
   background-repeat: no-repeat;
   padding-top: 8.8rem;
 
+  &--show {
+    background-image: url("../assests/images/hero-shows.jpg");
+  }
+
+  &__flex {
+    display: flex;
+    width: 100%;
+    gap: 3.2rem;
+    flex-direction: column;
+  }
+
+  &__sub {
+    font-size: $ts-subheader;
+    font-weight: 600;
+    line-height: $lh-sub;
+    margin-top: 2.4rem;
+    color: white;
+
+    @include respond-tablet {
+      font-size: $ts-subheader-lg;
+      font-weight: 600;
+      line-height: $lh-sub-lg;
+      margin-top: calc($margin * 3);
+    }
+  }
+
   &__text {
     font-size: 2.4rem;
     line-height: 3.2rem;
     font-weight: bold;
     color: white;
-  
+
     @include respond-tablet {
       font-size: 6rem;
       line-height: 6rem;
-
     }
   }
 
@@ -33,6 +58,17 @@
     align-items: center;
     height: 100%;
     padding: 0 $padding;
+
+    &--show {
+      gap: 2.4rem;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    @include respond-tablet {
+      gap: 3.2rem;
+    }
   }
 
   @include respond-tablet {
@@ -40,8 +76,21 @@
     height: 100vh;
     padding-top: 4.9rem;
 
+    &__flex {
+      gap: 3.2rem;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
     &__container {
       padding: 0 3.2rem;
+    }
+
+    &__subtitle {
+      font-size: $ts-subheader-lg;
+      font-weight: 600;
+      line-height: $lh-sub-lg;
+      margin-top: calc($margin * 3);
     }
   }
 

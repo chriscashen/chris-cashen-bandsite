@@ -16,9 +16,9 @@ const homeLink = document.querySelector("#homeLink");
 
 // Initial comments
 const comments = [
-  { commentBy: "Chris", commentContent: "something", createdAt: "date" },
-  { commentBy: "Chris", commentContent: "something", createdAt: "date" },
-  { commentBy: "Chris", commentContent: "something", createdAt: "date" },
+  { commentBy: "Chris", commentContent: "something", createdAt: "02/17/2021" },
+  { commentBy: "Chris", commentContent: "something", createdAt: "01/09/2021" },
+  { commentBy: "Chris", commentContent: "something", createdAt: "12/20/2020" },
 ];
 
 // Event listener for the form submit
@@ -96,7 +96,7 @@ function handleOnSubmit() {
     return false;
   }
   // Add the comment to the comments array
-  const createdAt = new Date().toISOString();
+  const createdAt = new Date().toLocaleDateString("en-US");
   comments.push({
     commentBy: commentBy.value,
     commentContent: commentContent.value,

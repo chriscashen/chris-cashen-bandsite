@@ -6,7 +6,13 @@
 
 .footer {
     background-color: $sec-clr-dark;
-    padding: 2.4rem $padding;
+    padding-top: 2.4rem;
+   
+
+    &__container {
+      margin: 0 auto;
+      padding:  $padding;
+    }
   
     &__header {
       font-size: $ts-section-header;
@@ -54,8 +60,8 @@
     }
   
     &__copyright {
-      margin-top: 4rem;
-      margin: 0 auto;
+      margin: auto;
+      padding: $padding;
   
       &-text {
         font-size: $ts-footer-copy;
@@ -66,13 +72,15 @@
     }
   
     @include respond-tablet {
+      
+
       &__container {
-      padding: 0 3.2rem;
+      padding: 3.2rem;
         margin: 0 auto;
       }
   
       &__copyright {
-        padding: 0 3.2rem;
+        padding: 3.2rem;
         margin: 0 auto;
       }
   
