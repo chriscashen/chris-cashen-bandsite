@@ -1,0 +1,38 @@
+@use "../utils/" as *;
+
+// SHOW LIST
+.section__show {
+  margin-bottom: $margin;
+
+  @include respond-tablet {
+    padding: 0 2.4rem;
+    margin-bottom: 3.2rem;
+  }
+}
+
+// SHOW ITEM
+.show {
+  &__container {
+    padding: 1.6rem;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    &-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+  }
+
+  &__actions {
+    margin-top: 1.6rem;
+  }
+
+  @include respond-tablet {
+    display: none;
+  }
+}

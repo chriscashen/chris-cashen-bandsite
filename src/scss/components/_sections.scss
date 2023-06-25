@@ -5,11 +5,11 @@
 // -----------------------------------
 
 .section {
-  padding: 0 $padding;
+  // padding: 0 $padding;
 
   &__container {
     margin: 0 auto;
-    padding-top: 2.4rem;
+    padding: $padding;
     padding-bottom: $space-after;
   }
 
@@ -20,10 +20,8 @@
   // SECTIONS ---- TABLET
   @include respond-tablet {
     &__container {
-      padding-top: 3.2rem;
+      padding: 3.2rem;
       padding-bottom: $space-after-lg;
-      max-width: $max-wd-tb;
-
     }
   }
 

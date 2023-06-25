@@ -1,31 +1,31 @@
 @use "../utils/" as *;
 
-.header {
-  font-size: 2.4rem;
-  line-height: 3.2rem;
-  font-family: bold;
-  color: white;
 
-  @include respond-tablet {
-    font-size: 6rem;
-    line-height: 6rem;
-    font-family: bold;
-  }
-}
 
-.section-header {
+.section__header {
   font-size: 2.4rem;
   line-height: 3.2rem;
   font-weight: bold;
+  margin-top: 2.4rem;
+
+  &--shows {
+    margin-top: 2.4rem;
+    padding: 0 $padding;
+  }
 
   @include respond-tablet {
     font-size: 3.6rem;
     line-height: 4.4rem;
     font-weight: bold;
+
+
+    &--shows {
+      margin-top: 3.2rem;
+    }
   }
 }
 
-.sub-header {
+.sub__header {
   font-size: 1.4rem;
   line-height: 2.2rem;
   font-weight: 600;
@@ -37,9 +37,17 @@
   }
 }
 
-.body-text {
+.body__text {
   font-size: 1.3rem;
   line-height: 1.8rem;
+
+  &--bold {
+    font-weight: 600;
+  }
+
+  &--color-grey {
+    color: $sec-clr-mercury;
+  }
 
   @include respond-tablet {
     font-size: 1.4rem;
@@ -47,7 +55,7 @@
   }
 }
 
-.footer-text {
+.footer__text {
   font-size: 1.3rem;
   line-height: 1.8rem;
 
@@ -57,7 +65,7 @@
   }
 }
 
-.label-text {
+.label__text {
   font-size: 1rem;
   line-height: 2rem;
   font-weight: bold;

@@ -1,0 +1,135 @@
+@use "../utils/" as *;
+// COMMENT FORM
+
+$color-gray-light: #f7f7f7;
+$color-primary: #7ed56f;
+$color-gray-dark: #777;
+$color-error: #d22d2d;
+
+.comments__container {
+    margin: 0 auto;
+    padding: 1.6rem;
+    display: flex;
+    gap: 1.6rem;
+    flex-direction: column;
+  
+    &-content {
+      display: flex;
+      gap: 1.6rem;
+    }
+  
+    @include respond-tablet {
+      max-width: 61.2rem;
+    }
+  
+    @include respond-deskop {
+      max-width: 53.4rem;
+    }
+  }
+  
+  .comment__form {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form__group {
+    margin-bottom: 1rem;
+  
+    &-label {
+      display: block;
+      margin-bottom: 0.5rem;
+  
+      &--error {
+        color: $color-error;
+      }
+    }
+  
+    &-input {
+      display: block;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid $sec-clr-mercury;
+      border-radius: 4px;
+      background-color: $color-gray-light;
+      color: $color-gray-dark;
+      font-size: 1rem;
+      line-height: 1.5;
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  
+      &:focus {
+        outline: 0;
+        border-color: $pri-clr-black;
+        // box-shadow: 0 0 0 0.2rem rgba($pri-clr-black, .05);
+      }
+  
+      &--textarea {
+        resize: none;
+      }
+      // Error
+      &--error {
+        border-color: $color-error;
+      }
+    }
+  
+    // Helper text
+    &-span {
+      display: none;
+      margin-top: 0.5rem;
+      font-size: 0.875rem;
+      color: $color-error;
+  
+      &--error {
+        display: block;
+      }
+    }
+  }
+  
+  .avatar__container {
+    height: 2.5rem;
+    width: 2.5rem;
+    background-image: url(../assests/images/Mohan-muruge.jpg);
+    background-size: contain;
+    border-radius: 50%;
+    margin-top: 2.1rem;
+  }
+  
+
+  // COMMENT
+
+  .comment {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    margin-bottom: 1.6rem;
+  
+    &__container {
+      display: flex;
+      flex-grow: 1;
+      gap: 1.6rem;
+    }
+  
+    &__avatar {
+      height: 2.5rem;
+      min-width: 2.5rem;
+      background-color: $pri-clr-silver;
+      border-radius: 50%;
+    }
+  
+    &__content {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+  
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+
+      &-date {
+        color: $pri-clr-silver;
+      }
+    }
+  }

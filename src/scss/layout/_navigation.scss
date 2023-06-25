@@ -28,9 +28,9 @@
 
     &-link {
       color: $pri-clr-white;
+      padding: 1.6rem;
       font-size: $ts-label;
       font-weight: bold;
-      padding: $padding;
       width: 100%;
       text-align: center;
 
@@ -46,7 +46,7 @@
     &__container {
       flex-direction: row;
       gap: $space-between;
-      max-width: $max-wd-tb;
+     padding: 0 3.2rem;
     }
 
     &__logo-link {

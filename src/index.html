@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="app.js"></script>
+    <script type="module" src="home.js"></script>
     <link rel="stylesheet" href="./scss/main.scss" />
+
     <title>BandSite</title>
   </head>
-
   <body>
     <!-- ---------------- -->
     <!-- NAV -->
@@ -16,10 +17,14 @@
     <header class="header">
       <nav class="nav">
         <div class="nav__container">
-          <a class="nav__logo-link" href="./index.html"> BANDSITE </a>
+          <a class="nav__logo-link" href="./index.html">BANDSITE</a>
           <div class="nav__tabs">
-            <a class="nav__tabs-link nav__tabs-link--active"> Biography </a>
-            <a class="nav__tabs-link"> Shows </a>
+            <a class="nav__tabs-link" href="./index.html" id="homeLink">
+              Biography
+            </a>
+            <a class="nav__tabs-link" href="./pages/shows.html" id="showsLink"
+              >Shows</a
+            >
           </div>
         </div>
       </nav>
@@ -30,7 +35,7 @@
     <div class="container">
       <section class="hero">
         <div class="hero__container">
-          <h1 class="header">The Bees Knees</h1>
+          <h1 class="hero__text">The Bees Knees</h1>
         </div>
       </section>
       <!-- ---------------- -->
@@ -38,19 +43,19 @@
       <!-- ---------------- -->
       <section class="section">
         <div class="section__container">
-          <h1 class="section-header">About the Musicians</h1>
+          <h1 class="section__header">About the Musicians</h1>
           <div class="about">
             <img class="about__image" src="./assests/images/band.jpg" />
-            <p class="about__quote">
+            <p class="sub__header">
               “We push each other to be the best. It’s not uncommon for one of
               us to say ‘this needs to be better, back to the drawing board’”
             </p>
-            <p class="about__body about__body--bold">
+            <p class="body__text body__text--bold">
               - Bryan Teddy, lead vocalist of The Bees Knees
             </p>
             <h3 class="about__subtitle">The Bees Knees</h3>
             <div class="about__grid">
-              <p class="body-text">
+              <p class="body__text">
                 The Bees Knees is a pop rock band originating from San
                 Francisco, California. The band consists of lead vocalist Bryan
                 Teddy, guitarist Mack Tolkens, guitarist Andrew Green, bassist
@@ -61,7 +66,7 @@
                 Adams was confident the band could succeed even further, pushing
                 them to sign with Magenta Records.
               </p>
-              <p class="body-text">
+              <p class="body__text">
                 From there, the band has soared, gaining international
                 recognition and ranking in the top 10 on the Poster Charts. New
                 fans immediately fell in love with the band’s original and
@@ -82,7 +87,7 @@
       <!-- ---------------- -->
       <section class="section section--grey">
         <div class="section__container">
-          <h1 class="section-header">Photo Gallery</h1>
+          <h1 class="section__header">Photo Gallery</h1>
           <div class="grid">
             <div class="grid__item">
               <img
@@ -142,6 +147,64 @@
         </div>
       </section>
       <!-- ---------------- -->
+      <!-- COMMENTS -->
+      <!-- ---------------- -->
+      <section class="section">
+        <div class="section__container">
+          <h1 class="section__header">Join the Conversation</h1>
+          <div class="comments__container">
+            <div class="comments__container-content">
+              <div class="avatar__container"></div>
+              <form class="comment__form" id="comment-form">
+                <div class="form__group">
+                  <label
+                    class="form__group-label"
+                    id="commentByLabel"
+                    for="commentBy"
+                    >Name</label
+                  >
+                  <input
+                    class="form__group-input"
+                    type="text"
+                    placeholder="Enter your name"
+                    name="name"
+                    id="commentBy"
+                  />
+                  <span id="commentByError" class="form__group-span"
+                    >Please enter your name before submitting</span
+                  >
+                </div>
+                <div class="form__group">
+                  <label
+                    class="form__group-label"
+                    id="commentContentLabel"
+                    for="comment"
+                    >Comment</label
+                  >
+                  <textarea
+                    class="form__group-input form__group-input--textarea"
+                    placeholder="Add a new comment"
+                    rows="4"
+                    name="commentContent"
+                    id="commentContent"
+                  ></textarea>
+                  <span id="commentContentError" class="form__group-span"
+                    >Please enter a comment before submitting</span
+                  >
+                </div>
+                <button class="button form__button" type="submit">
+                  Comment
+                </button>
+              </form>
+            </div>
+            <hr class="divider" />
+            <div class="comments" id="commentsContainer">
+              <!-- comments will be added here -->
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ---------------- -->
       <!-- FOOTER -->
       <!-- ---------------- -->
       <footer class="footer">
@@ -169,7 +232,11 @@
               </div>
             </div>
             <div class="footer__row-item">
-              <a class="footer__logo-link footer__logo-link--desktop" href="./index.html">BANDSITE</a>
+              <a
+                class="footer__logo-link footer__logo-link--desktop"
+                href="./index.html"
+                >BANDSITE</a
+              >
             </div>
           </div>
           <div class="footer__grid">
@@ -229,7 +296,11 @@
           </div>
         </div>
         <div class="footer__copyright">
-          <a class="footer__logo-link footer__logo-link--mobile" href="./index.html">BANDSITE</a>
+          <a
+            class="footer__logo-link footer__logo-link--mobile"
+            href="./index.html"
+            >BANDSITE</a
+          >
           <p class="footer__copyright-text">
             Copyright The Bees Knees © 2021 All Rights Reserved
           </p>

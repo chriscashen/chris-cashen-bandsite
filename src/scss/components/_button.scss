@@ -1,10 +1,23 @@
+@use "../utils/" as *;
+
 .button {
-    font-size: 1rem;
-    line-height: 2rem;
-    font-weight: bold;
-    
-    @include respond-tablet {
-      font-size: 1.2rem;
-      line-height: 2rem;
-    }
+  min-width: 15rem;
+  width: 100%;
+  padding: 0.75rem 3.2rem;
+  background-color: $pri-clr-black;
+  color: $pri-clr-white;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.15s ease-in-out;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: $sec-clr-dark;
+    cursor: pointer;
   }
+
+  @include respond-tablet {
+    max-width: max-content;
+    align-self: end;
+  }
+}
