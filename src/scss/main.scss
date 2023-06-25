@@ -108,7 +108,8 @@ $color-error: #D22D2D;
     text-transform: uppercase;
 
     &:hover {
-        background-color: $sec-clr-dark
+        background-color: $sec-clr-dark;
+        cursor: pointer;
     }
 
     @include respond-tablet {
@@ -154,4 +155,28 @@ $color-error: #D22D2D;
         align-items: center;
         margin-bottom: .5rem;
     }
+}
+
+.show {
+    &__container {
+        padding: 1.6rem;
+    
+    }
+
+    &__body {
+        display: flex;;
+        flex-direction: column;
+        gap: 1.6rem;
+
+        &-row {
+            display: flex;
+            flex-direction: column;
+            gap: .4rem;
+        }
+    }
+
+    &__actions {
+        margin-top: 1.6rem;
+    }
+
 }

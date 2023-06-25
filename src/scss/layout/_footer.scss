@@ -67,12 +67,12 @@
   
     @include respond-tablet {
       &__container {
-        max-width: $max-wd-tb;
+      padding: 0 3.2rem;
         margin: 0 auto;
       }
   
       &__copyright {
-        max-width: $max-wd-tb;
+        padding: 0 3.2rem;
         margin: 0 auto;
       }
   

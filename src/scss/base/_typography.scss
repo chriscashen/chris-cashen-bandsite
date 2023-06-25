@@ -1,17 +1,6 @@
 @use "../utils/" as *;
 
-.header__text {
-  font-size: 2.4rem;
-  line-height: 3.2rem;
-  font-family: bold;
-  color: white;
 
-  @include respond-tablet {
-    font-size: 6rem;
-    line-height: 6rem;
-    font-family: bold;
-  }
-}
 
 .section__header {
   font-size: 2.4rem;

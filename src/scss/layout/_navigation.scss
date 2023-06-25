@@ -46,7 +46,7 @@
     &__container {
       flex-direction: row;
       gap: $space-between;
-      max-width: $max-wd-tb;
+     padding: 0 3.2rem;
     }
 
     &__logo-link {
