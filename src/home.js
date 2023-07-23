@@ -1,5 +1,6 @@
 import { setActiveLink, clearChildren, formatDate } from "./app";
 import { httpRequest } from "./api";
+import defaultAvatar from "./assests/images/Mohan-muruge.jpg";
 
 const form = document.querySelector("#comment-form");
 // comment Name
@@ -37,21 +38,22 @@ function renderComment(comment) {
   //   comment
   // }
 
-  let formattedDate = formatDate(comment.timestamp)
-
+  let formattedDate = formatDate(comment?.timestamp);
 
   const commentHTML = `
     <div class="comment">
       <div class="comment__container">
-        <div class="comment__avatar"></div>
-        <div class="comment__content">
+        <img class="comment__avatar" src='${
+          comment?.avatar ? comment?.avatar : defaultAvatar
+        }' />
+     <div class="comment__content">
           <div class="comment__header">
-            <h3 class="comment__header-name">${comment.name}</h3>
+            <h3 class="comment__header-name">${comment?.name}</h3>
             <p class="comment__header-date">${formattedDate}</p>
           </div>
           <div class="comment__body">
             <p class="comment__body-text">
-              ${comment.comment}
+              ${comment?.comment}
             </p>
           </div>
         </div>
@@ -71,7 +73,7 @@ function renderComment(comment) {
 // Render comments
 async function renderComments() {
   clearChildren(commentsContainer);
-  
+
   commentList.forEach((comment) => {
     commentsContainer.insertAdjacentElement(
       "afterbegin",
@@ -110,7 +112,7 @@ async function handleOnSubmit() {
   };
 
   await addComment(comment);
-  await getComments()
+  await getComments();
 
   // Remove the error class
   removeErrorClass();
