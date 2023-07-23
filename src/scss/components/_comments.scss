@@ -135,4 +135,11 @@ $color-error: #d22d2d;
         color: $pri-clr-silver;
       }
     }
+
+    &__actions {
+      display: flex;
+      gap: 1.6rem;
+      align-items: center;
+      justify-content: flex-end;
+    }
   }

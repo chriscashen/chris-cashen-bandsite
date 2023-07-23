@@ -3,9 +3,8 @@ import axios from "axios";
 const apiKey = "6ac70dbe-ce1c-4e56-b1a0-f359fa856928"; // API key
 
 const axiosInstance = axios.create({
-  baseURL: "https://project-1-api.herokuapp.com/", // API URL
+  baseURL: "https://project-1-api.herokuapp.com", // API URL
   timeout: 10000, // request timeout
-  headers: { "Content-Type": "application/json" }, // default headers
   params: {
     api_key: apiKey,
   },
