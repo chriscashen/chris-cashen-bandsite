@@ -1,25 +1,22 @@
-import { setActiveLink, clearChildren } from "./app";
+import { setActiveLink, clearChildren, formatDate } from "./app";
+import { httpRequest } from "./api";
 
 const form = document.querySelector("#comment-form");
-// comment Nme
+// comment Name
 const commentBy = document.querySelector("#commentBy");
 const commentByLabel = document.querySelector("#commentByLabel");
 const commentByError = document.querySelector("#commentByError");
-// COMMENT Content
+// comment Content
 const commentContent = document.querySelector("#commentContent");
 const commentContentLabel = document.querySelector("#commentContentLabel");
 const commentContentError = document.querySelector("#commentContentError");
-// commentS
+// comments
 const commentsContainer = document.querySelector("#commentsContainer");
 
 const homeLink = document.querySelector("#homeLink");
 
 // Initial comments
-const comments = [
-  { commentBy: "Chris", commentContent: "something", createdAt: "02/17/2021" },
-  { commentBy: "Chris", commentContent: "something", createdAt: "01/09/2021" },
-  { commentBy: "Chris", commentContent: "something", createdAt: "12/20/2020" },
-];
+let commentList = [];
 
 // Event listener for the form submit
 if (form) {
@@ -32,18 +29,29 @@ if (form) {
 
 // Render a comment
 function renderComment(comment) {
+  // comment = {
+  //   name,
+  //   id,
+  //   likes,
+  //   timestamp,
+  //   comment
+  // }
+
+  let formattedDate = formatDate(comment.timestamp)
+
+
   const commentHTML = `
     <div class="comment">
       <div class="comment__container">
         <div class="comment__avatar"></div>
         <div class="comment__content">
           <div class="comment__header">
-            <h3 class="comment__header-name">${comment.commentBy}</h3>
-            <p class="comment__header-date">${comment.createdAt}</p>
+            <h3 class="comment__header-name">${comment.name}</h3>
+            <p class="comment__header-date">${formattedDate}</p>
           </div>
           <div class="comment__body">
             <p class="comment__body-text">
-              ${comment.commentContent}
+              ${comment.comment}
             </p>
           </div>
         </div>
@@ -60,11 +68,11 @@ function renderComment(comment) {
   return commentElement.firstChild;
 }
 
-// Render initial comments
-function renderComments() {
+// Render comments
+async function renderComments() {
   clearChildren(commentsContainer);
-
-  comments.forEach((comment) => {
+  
+  commentList.forEach((comment) => {
     commentsContainer.insertAdjacentElement(
       "afterbegin",
       renderComment(comment)
@@ -73,11 +81,11 @@ function renderComments() {
 }
 
 ////
-// FORM VALIDATION 
+// FORM VALIDATION
 ////
 
 // Handle the form submit
-function handleOnSubmit() {
+async function handleOnSubmit() {
   //clear the error class's
   removeErrorClass();
 
@@ -95,13 +103,15 @@ function handleOnSubmit() {
     }
     return false;
   }
-  // Add the comment to the comments array
-  const createdAt = new Date().toLocaleDateString("en-US");
-  comments.push({
-    commentBy: commentBy.value,
-    commentContent: commentContent.value,
-    createdAt,
-  });
+  // send
+  let comment = {
+    name: commentBy.value,
+    comment: commentContent.value,
+  };
+
+  await addComment(comment);
+  await getComments()
+
   // Remove the error class
   removeErrorClass();
   // Reset the form
@@ -113,18 +123,34 @@ function handleOnSubmit() {
 
 // Remove the error class
 function removeErrorClass() {
-    commentByError.classList.remove("form__group-span--error");
-    commentContentError.classList.remove("form__group-span--error");
-    commentByLabel.classList.remove("form__group-label--error");
-    commentContentLabel.classList.remove("form__group-label--error");
-    commentBy.classList.remove("form__group-input--error");
-    commentContent.classList.remove("form__group-input--error");
-  }
-
-
+  commentByError.classList.remove("form__group-span--error");
+  commentContentError.classList.remove("form__group-span--error");
+  commentByLabel.classList.remove("form__group-label--error");
+  commentContentLabel.classList.remove("form__group-label--error");
+  commentBy.classList.remove("form__group-input--error");
+  commentContent.classList.remove("form__group-input--error");
+}
 //
+async function addComment(commentData) {
+  try {
+    const newComment = await httpRequest.addComment(commentData);
+    console.log(newComment);
+  } catch (error) {
+    console.error("An error occurred:", error);
+  }
+}
+
+async function getComments() {
+  try {
+    const comments = await httpRequest.getComments();
+    commentList = [...comments];
+    console.log(comments);
+    renderComments();
+  } catch (error) {
+    console.error("An error occurred:", error);
+  }
+}
 
 // APP INIT
-renderComments();
-setActiveLink(homeLink)
-
+setActiveLink(homeLink);
+getComments();
