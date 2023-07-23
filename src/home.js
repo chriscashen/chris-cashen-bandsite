@@ -13,6 +13,7 @@ const commentContentLabel = document.querySelector("#commentContentLabel");
 const commentContentError = document.querySelector("#commentContentError");
 // comments
 const commentsContainer = document.querySelector("#commentsContainer");
+// const commentActions = document.querySelector('#comment__actions')
 
 const homeLink = document.querySelector("#homeLink");
 
@@ -57,6 +58,12 @@ function renderComment(comment) {
             </p>
           </div>
         </div>
+      </div> 
+      <div class="comment__actions">
+      <span>&#10084; ${comment.likes}</span>
+      <button class="like__button button" data-value=${comment?.id}>&#10084;</button>
+      <button class="delete__button button" data-value=${comment?.id
+      }>&#128465;</button>
       </div>
       <hr class="divider" />
     </div>
@@ -146,7 +153,28 @@ async function getComments() {
   try {
     const comments = await httpRequest.getComments();
     commentList = [...comments];
-    console.log(comments);
+    renderComments();
+  } catch (error) {
+    console.error("An error occurred:", error);
+  }
+}
+
+async function likeComment(id) {
+  try {
+    console.log("logging" + id);
+    await httpRequest.likeCommentById(id);
+    await getComments();
+    renderComments();
+  } catch (error) {
+    console.error("An error occurred:", error);
+  }
+}
+
+async function deleteComment(id) {
+  try {
+    console.log("logging" + id);
+    await httpRequest.deleteCommentById(id);
+    await getComments();
     renderComments();
   } catch (error) {
     console.error("An error occurred:", error);
@@ -156,3 +184,26 @@ async function getComments() {
 // APP INIT
 setActiveLink(homeLink);
 getComments();
+
+
+/// LIKE AND DELETE MAGIC!!!!!!
+
+// Handle Like - Event Delegation
+commentsContainer.addEventListener("click", function (event) {
+  if (event.target.matches(".like__button")) {
+    const commentId = event.target.getAttribute("data-value");
+
+    // use the comment ID
+    likeComment(commentId);
+  }
+});
+
+// Handle Delete - Event Delegation
+commentsContainer.addEventListener("click", function (event) {
+  if (event.target.matches(".delete__button")) {
+    const commentId = event.target.getAttribute("data-value");
+
+    // use the comment ID
+    deleteComment(commentId)
+  }
+});
