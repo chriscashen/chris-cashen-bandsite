@@ -93,6 +93,8 @@ $color-error: #d22d2d;
     border-radius: 50%;
     margin-top: 2.1rem;
   }
+
+  
   
 
   // COMMENT
@@ -111,7 +113,8 @@ $color-error: #d22d2d;
   
     &__avatar {
       height: 2.5rem;
-      min-width: 2.5rem;
+      width: 2.5rem;
+      background-size: contain;
       background-color: $pri-clr-silver;
       border-radius: 50%;
     }
