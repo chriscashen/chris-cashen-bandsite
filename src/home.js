@@ -185,6 +185,9 @@ async function deleteComment(id) {
 setActiveLink(homeLink);
 getComments();
 
+
+/// LIKE AND DELETE MAGIC!!!!!!
+
 // Handle Like - Event Delegation
 commentsContainer.addEventListener("click", function (event) {
   if (event.target.matches(".like__button")) {
