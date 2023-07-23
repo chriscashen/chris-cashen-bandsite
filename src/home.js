@@ -161,7 +161,6 @@ async function getComments() {
 
 async function likeComment(id) {
   try {
-    console.log("logging" + id);
     await httpRequest.likeCommentById(id);
     await getComments();
     renderComments();
